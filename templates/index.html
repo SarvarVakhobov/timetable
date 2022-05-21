@@ -1,0 +1,315 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz-UZ">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dars jadvali </title>
+    <link rel="shortcut icon" href="{% static 'iiau.jpeg' %}" type="image/x-icon">
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'muxabbatxon_agzamova');
+    </script>
+    <link href="https://student.iiau.uz/assets/1619872/css/bootstrap.css?v=1550073338" rel="stylesheet">
+    <link href="https://student.iiau.uz/assets/87d5e0e3/css/select2.min.css?v=1580187682" rel="stylesheet">
+    <link href="https://student.iiau.uz/assets/d5784b03/css/font-awesome.min.css?v=1477324374" rel="stylesheet">
+    <link href="https://student.iiau.uz/assets/ceb7492/dist/css/AdminLTE.min.css?v=1567066820" rel="stylesheet">
+    <link href="https://student.iiau.uz/assets/db824b17/src/0.1.4/css/checkBo.min.css?v=1465721329" rel="stylesheet">
+    <link href="https://student.iiau.uz/assets/a9686031/css/style.css?v=1650101086" rel="stylesheet">
+    <link
+        href="https://student.iiau.uzhttps://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"
+        rel="stylesheet">
+    <link href="https://student.iiau.uz/assets/66ad8997/css/front.css?v=1643782105" rel="stylesheet">
+    <script>var s2options_7ebc6538 = { "themeCss": ".select2-container--default", "sizeCss": "", "doReset": true, "doToggle": false, "doOrder": false };
+        window.select2_3b5c60d4 = { "allowClear": false, "placeholder": "Xaftani tanlang", "theme": "default", "width": "100%", "language": "uz-UZ" };
+
+        var globalMessages = { "deleteItem": "Haqiqatan o‘chirmoqchimisiz?" };
+    </script>
+</head>
+
+<body class="sidebar-mini skin-blue">
+    <section class="content">
+        <div id="schedule-grid" data-pjax-container="" data-pjax="1">
+            <div class="info-box box-mini">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span class="info-box-icon" style="background-color: white;">
+                            <img src="{% static 'iiau.jpeg' %}">
+                        </span>
+                        <div class="info-box-content ">
+
+                            <span class="info-box-number">
+                                O'ZBEKISTON XALQARO ISLOM AKADEMIYASI
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="info-box-content no-margin text-right text-center-sm">
+                            <ul class="pagination pagination-sm psemester">
+                                <li>
+                                    <a href="#" class="plabel" style="font-size: 16px;">{{course.course_id}} -
+                                        {{course.first_year}}/{{course.last_year}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="data-grid-filters">
+                    <form id="w0" action="" method="post">
+                        <input type="hidden" name="_csrf-frontend"
+                            value="wkziGc3zrtoMdEUFF_bSA3ggD1VHjm3MmivRPSAtr46oAI5soJzj7U0jFTwmp4NlJxk-Bga9IKTrQIRUSUWd-g==">
+                        <div class="col col-sm-2 col-md-1 col-md-offset-3 hidden-xs">
+                            <label>&nbsp;</label>
+
+                        </div>
+                        <div class="col col-xs-12 col-sm-8 col-md-4 text-center">
+                            <div class="form-group field-studentschedule-_week">
+                                <label class="control-label fs16" for="studentschedule-_week">DARS JADVALI</label>
+
+                                <div class="help-block"></div>
+                            </div>
+                        </div>
+                        <div class="col col-sm-2 col-md-1  hidden-xs">
+                            <label>&nbsp;</label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row sh-parent">
+                    <div class="col-sm-4">
+                        <div class="box box-success sh">
+                            <div class="box-header  with-border">
+                                <h3 class="box-title display-block">
+                                    Dushanba
+                                </h3>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    {% for el in dushanba %}
+                                    <li>
+
+                                        <a href="#" data-pjax="0" title="{{el.teacher.last_name}} {{el.teacher.first_name}} {{el.teacher.father_name}}">
+                                            {{el.para}}.
+                                            {{el.subject}}
+                                           <br>
+                                            <span class="text-center text-muted">{{el.room}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.type}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.teacher}}</span>
+
+                                            <span class="pull-right text-muted">{{el.time}}</span>
+                                        </a>
+                                        
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box box-success sh">
+                            <div class="box-header  with-border">
+                                <h3 class="box-title display-block">
+                                    Seshanba
+                                </h3>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    {% for el in seshanba %}
+                                    <li>
+
+                                        <a href="#" data-pjax="0" title="{{el.teacher.last_name}} {{el.teacher.first_name}} {{el.teacher.father_name}}">
+                                            {{el.para}}.
+                                            {{el.subject}}
+                                           <br>
+                                            <span class="text-center text-muted">{{el.room}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.type}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.teacher}}</span>
+
+                                            <span class="pull-right text-muted">{{el.time}}</span>
+                                        </a>
+                                        
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box box-success sh">
+                            <div class="box-header  with-border">
+                                <h3 class="box-title display-block">
+                                    Chorshanba
+                                </h3>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    {% for el in chorshanba %}
+                                    <li>
+
+                                        <a href="#" data-pjax="0" title="{{el.teacher.last_name}} {{el.teacher.first_name}} {{el.teacher.father_name}}">
+                                            {{el.para}}.
+                                            {{el.subject}}
+                                           <br>
+                                            <span class="text-center text-muted">{{el.room}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.type}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.teacher}}</span>
+
+                                            <span class="pull-right text-muted">{{el.time}}</span>
+                                        </a>
+                                        
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row sh-parent">
+                    <div class="col-sm-4">
+                        <div class="box box-success sh">
+                            <div class="box-header  with-border">
+                                <h3 class="box-title display-block">
+                                    Payshanba
+                                </h3>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    {% for el in payshanba %}
+                                    <li>
+
+                                        <a href="#" data-pjax="0" title="{{el.teacher.last_name}} {{el.teacher.first_name}} {{el.teacher.father_name}}">
+                                            {{el.para}}.
+                                            {{el.subject}}
+                                           <br>
+                                            <span class="text-center text-muted">{{el.room}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.type}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.teacher}}</span>
+
+                                            <span class="pull-right text-muted">{{el.time}}</span>
+                                        </a>
+                                        
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box box-success sh">
+                            <div class="box-header  with-border">
+                                <h3 class="box-title display-block">
+                                    Juma
+                                </h3>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    {% for el in juma %}
+                                    <li>
+
+                                        <a href="#" data-pjax="0" title="{{el.teacher.last_name}} {{el.teacher.first_name}} {{el.teacher.father_name}}">
+                                            {{el.para}}.
+                                            {{el.subject}}
+                                           <br>
+                                            <span class="text-center text-muted">{{el.room}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.type}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.teacher}}</span>
+
+                                            <span class="pull-right text-muted">{{el.time}}</span>
+                                        </a>
+                                        
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box box-success sh">
+                            <div class="box-header  with-border">
+                                <h3 class="box-title display-block">
+                                    Shanba
+                                </h3>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    {% for el in shanba %}
+                                    <li>
+
+                                        <a href="#" data-pjax="0" title="{{el.teacher.last_name}} {{el.teacher.first_name}} {{el.teacher.father_name}}">
+                                            {{el.para}}.
+                                            {{el.subject}}
+                                           <br>
+                                            <span class="text-center text-muted">{{el.room}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.type}}</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">{{el.teacher}}</span>
+
+                                            <span class="pull-right text-muted">{{el.time}}</span>
+                                        </a>
+                                        
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <footer class="main-footer no-margin">
+        <div class="hidden-xs text-center">
+            <b>Barcha huquqlar himoyalangan </b> <b>| Sarvarbek Vaxobov |</b> +998900011076
+        </div>
+    </footer>
+    <script src="https://student.iiau.uz/assets/462e53b/jquery.js?v=1588632646"></script>
+    <script src="https://student.iiau.uz/assets/a039600/yii.js?v=1614872704"></script>
+    <script src="https://student.iiau.uz/assets/87d5e0e3/js/select2.full.min.js?v=1580187682"></script>
+    <script src="https://student.iiau.uz/assets/1f28070e/js/select2-krajee.min.js?v=1635948377"></script>
+    <script src="https://student.iiau.uz/assets/6117a1ef/js/kv-widgets.min.js?v=1646383293"></script>
+    <script src="https://student.iiau.uz/assets/a039600/yii.validation.js?v=1614872704"></script>
+    <script src="https://student.iiau.uz/assets/a039600/yii.activeForm.js?v=1614872704"></script>
+    <script src="https://student.iiau.uz/assets/136706db/jquery.pjax.js?v=1507803074"></script>
+    <script src="https://student.iiau.uz/assets/1def7682/jquery-ui.js?v=1474004875"></script>
+    <script src="https://student.iiau.uz/assets/1619872/js/bootstrap.js?v=1550073338"></script>
+    <script
+        src="https://student.iiau.uz/assets/49a62ae5/theia-sticky-sidebar/dist/theia-sticky-sidebar.min.js?v=1493119854"></script>
+    <script src="https://student.iiau.uz/assets/ceb7492/plugins/iCheck/icheck.min.js?v=1567066820"></script>
+    <script src="https://student.iiau.uz/assets/ceb7492/dist/js/adminlte.min.js?v=1567066820"></script>
+    <script src="https://student.iiau.uz/assets/db824b17/src/0.1.4/js/checkBo.min.js?v=1465721329"></script>
+    <script src="https://student.iiau.uz/assets/a9686031/js/ajax-modal-popup.js?v=1623485446"></script>
+    <script src="https://student.iiau.uz/assets/a9686031/js/jquery.formatter.min.js?v=1598323949"></script>
+    <script src="https://student.iiau.uz/assets/a9686031/js/scripts.js?v=1623485446"></script>
+    <script src="https://student.iiau.uz/assets/a9686031/js/js.cookie.js?v=1598323949"></script>
+    <script src="https://student.iiau.uz/assets/66ad8997/js/front.js?v=1623485446"></script>
+    <script>jQuery(function ($) {
+            jQuery && jQuery.pjax && (jQuery.pjax.defaults.maxCacheLength = 0);
+            if (jQuery('#studentschedule-_week').data('select2')) { jQuery('#studentschedule-_week').select2('destroy'); }
+            jQuery.when(jQuery('#studentschedule-_week').select2(select2_3b5c60d4)).done(initS2Loading('studentschedule-_week', 's2options_7ebc6538'));
+
+            jQuery('#w0').yiiActiveForm([{ "id": "studentschedule-_week", "name": "_week", "container": ".field-studentschedule-_week", "input": "#studentschedule-_week", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.number(value, messages, { "pattern": /^\s*[+-]?\d+\s*$/, "message": "Xafta butun son bo\u0027lishi kerak", "skipOnEmpty": 1 }); } }], []);
+            jQuery(document).pjax("#schedule-grid a", { "push": false, "replace": false, "timeout": false, "scrollTo": false, "container": "#schedule-grid" });
+            jQuery(document).off("submit", "#schedule-grid form[data-pjax]").on("submit", "#schedule-grid form[data-pjax]", function (event) { jQuery.pjax.submit(event, { "push": false, "replace": false, "timeout": false, "scrollTo": false, "container": "#schedule-grid" }); });
+            jQuery('#modal').modal({ "show": false, "keyboard": true });
+        });
+    </script>
+</body>
+
+</html>
